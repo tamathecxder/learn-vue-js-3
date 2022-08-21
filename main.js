@@ -7,7 +7,12 @@ const app = Vue.createApp({
       image: "./assets/images/socks_green.jpg",
       inventory: 5,
       onSale: true,
-      url: "https://www.britanica.com/dictionary/sock",
+      url: "https://www.britannica.com/dictionary/sock",
+      details: ['50% cotton', '30% wool', '20% polyester'],
+      variants: [
+        { id: 1212, color: "Green" },
+        { id: 1213, color: "Blue" }
+      ],
     };
   },
 });

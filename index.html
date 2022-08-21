@@ -15,7 +15,6 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <!-- Image goes here -->
             <img :src="image" :alt="description">
           </div>
           <div class="product-info">
@@ -26,6 +25,14 @@
             <p v-if="inventory > 10">In Stock</p>
             <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
             <p v-else>Out of Stock</p>
+
+            <!-- List rendering -->
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <div v-for="variant in variants" :key="variant.id">
+              {{ variant.color }}
+            </div>
           </div>
         </div>
       </div>
