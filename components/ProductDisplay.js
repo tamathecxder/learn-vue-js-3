@@ -40,6 +40,7 @@ app.component("product-display", {
           </div>
         </div>
       </div>
+      <review-form @review-submitted="addReview"></review-form>
     </div>
   `,
   data() {
@@ -67,6 +68,7 @@ app.component("product-display", {
         },
       ],
       sizes: ["small", "middle", "large", "extra large"],
+      reviews: []
     };
   },
   methods: {
@@ -85,6 +87,9 @@ app.component("product-display", {
     updateVariant(index) {
       this.selectedVariant = index;
     },
+    addReview(review) {
+      this.reviews.push(review);
+    }
   },
   computed: {
     title() {
