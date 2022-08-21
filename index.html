@@ -14,44 +14,18 @@
 
       <div class="cart">Cart ({{ cart }})</div>
 
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <img :src="image" :alt="description" :class="[ inStock ? '' : 'out-of-stock-img' ]">
-          </div>
-          <div class="product-info">
-            <h1>{{ title }}</h1>
-            <p>{{ displayOnSale }}</p>
-
-            <h3 v-if="inStock">In Stock</h3>
-            <h3 v-else>Out of Stock</h3>
-
-            <ul>
-              <li v-for="detail in details">{{ detail }}</li>
-            </ul>
-            <div class="d-flex gap-3">
-              <div 
-                v-for="(variant, index) in variants" 
-                class="color-circle"
-                :key="variant.id"
-                @mouseover="updateVariant(index)"
-                :style="{ backgroundColor: variant.color }">
-              </div>            
-            </div>
-            <p>Socks sizes: <span v-for="size in sizes">{{ size }}, &nbsp;</span></p>
-
-            <div class="w-100 d-flex">
-              <button class="button" :class="{ disabledButton: !inStock }" @click="addToCart" :disabled="!inStock">Add to Cart</button>
-              <button class="button" @click="decrementCart">Decrement</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <product-display :premium="premium"></product-display>
     </div>
 
     <!-- Import App -->
     <script src="./main.js"></script>
 
+    <!-- Import Components -->
+    <script src="./components/ProductDisplay.js"></script>
+
+    <!-- Import Components -->
+    <script src="./components/ProductDetails.js"></script>
+    
     <!-- Mount App -->
     <script>
       const mountApp = app.mount('#app');
