@@ -5,6 +5,7 @@ const app = Vue.createApp({
       product: "Socks",
       description: "a piece of clothing that is worn on your foot and that covers your ankle and sometimes the lower part of your leg usually plural.",
       image: "./assets/images/socks_green.jpg",
+      inStock: false,
       inventory: 5,
       onSale: true,
       url: "https://www.britannica.com/dictionary/sock",

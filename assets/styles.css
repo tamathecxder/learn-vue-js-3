@@ -165,6 +165,34 @@ ul {
   list-style-type: none;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.gap-3 {
+  gap: 24px;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     flex-direction: column;

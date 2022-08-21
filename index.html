@@ -31,13 +31,21 @@
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-            <div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">
-              {{ variant.color }}
-            </div>            
+            <div class="d-flex gap-3">
+              <div 
+                class="color-circle"
+                v-for="variant in variants" 
+                :key="variant.id" 
+                @mouseover="updateImage(variant.image)"
+                :style="{ backgroundColor: variant.color }">
+              </div>            
+            </div>
             <p>Socks sizes: <span v-for="size in sizes">{{ size }}, &nbsp;</span></p>
 
-            <button class="button" @click="addToCart">Add to Cart</button>
-            <button class="button" @click="decrementCart">Decrement Cart</button>
+            <div class="w-100 d-flex">
+              <button class="button" @click="addToCart" :disabled="!inStock">Add to Cart</button>
+              <button class="button" @click="decrementCart">Decrement</button>
+            </div>
           </div>
         </div>
       </div>
