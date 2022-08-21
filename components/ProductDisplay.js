@@ -33,13 +33,14 @@ app.component("product-display", {
           </div>
           <p>Socks sizes: <span v-for="size in sizes">{{ size }}, &nbsp;</span></p>
 
-          <div class="w-100 d-flex">
+          <div class="w-100 d-flex flex-row">
             <button class="button" :class="{ disabledButton: !inStock }" @click="addToCart" :disabled="!inStock">Add to Cart</button>
             <button class="button" @click="decrementCart">Decrement</button>
             <button class="button" @click="removeCart">Remove</button>
           </div>
         </div>
       </div>
+      <review-list v-if="reviews.length" :reviews="reviews"></review-list>
       <review-form @review-submitted="addReview"></review-form>
     </div>
   `,

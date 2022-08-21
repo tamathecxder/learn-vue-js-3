@@ -10,7 +10,7 @@ body {
   background-color: #39495c;
   border-radius: 5px;
   font-size: 18px;
-  width: 160px;
+  width: 200px;
   height: 60px;
   color: white;
   padding: 20px;
@@ -166,7 +166,7 @@ ul {
 }
 
 .w-100 {
-  width: 100%;
+  width: 130%;
 }
 
 .d-flex {
