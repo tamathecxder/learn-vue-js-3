@@ -17,26 +17,24 @@
       <div class="product-display">
         <div class="product-container">
           <div class="product-image">
-            <img :src="image" :alt="description">
+            <img :src="image" :alt="description" :class="[ inStock ? '' : 'out-of-stock-img' ]">
           </div>
           <div class="product-info">
-            <h1>{{ product }}</h1>
-            <h2 v-if="onSale">On Sale</h2>
-            <a :href="url" target="_blank">Socks Definition...</a>
+            <h1>{{ title }}</h1>
+            <p>{{ displayOnSale }}</p>
 
-            <p v-if="inventory > 10">In Stock</p>
-            <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
-            <p v-else>Out of Stock</p>
+            <h3 v-if="inStock">In Stock</h3>
+            <h3 v-else>Out of Stock</h3>
 
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
             <div class="d-flex gap-3">
               <div 
+                v-for="(variant, index) in variants" 
                 class="color-circle"
-                v-for="variant in variants" 
-                :key="variant.id" 
-                @mouseover="updateImage(variant.image)"
+                :key="variant.id"
+                @mouseover="updateVariant(index)"
                 :style="{ backgroundColor: variant.color }">
               </div>            
             </div>

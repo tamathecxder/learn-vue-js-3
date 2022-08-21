@@ -3,9 +3,9 @@ const app = Vue.createApp({
   data() {
     return {
       product: "Socks",
+      brand: "Balenciaga",
       description: "a piece of clothing that is worn on your foot and that covers your ankle and sometimes the lower part of your leg usually plural.",
-      image: "./assets/images/socks_green.jpg",
-      inStock: false,
+      selectedVariant: 0,
       inventory: 5,
       onSale: true,
       url: "https://www.britannica.com/dictionary/sock",
@@ -14,12 +14,14 @@ const app = Vue.createApp({
         { 
           id: 1212, 
           color: "Green",
-          image: "./assets/images/socks_green.jpg"
+          image: "./assets/images/socks_green.jpg",
+          quantity: 100
         },
         { 
           id: 1213, 
           color: "Blue" ,
-          image: "./assets/images/socks_blue.jpg"
+          image: "./assets/images/socks_blue.jpg",
+          quantity: 0
         }
       ],
       sizes: ["small", "middle", "large", "extra large"],
@@ -36,8 +38,29 @@ const app = Vue.createApp({
       }
       this.cart -= 1;
     },
-    updateImage(variantImage) {
-      this.image = variantImage;
+    updateVariant(index) {
+      this.selectedVariant = index;
+    }
+  },
+  computed: {
+    title() {
+      return `${this.brand} ${this.product}`;
+    },
+    image() {
+      return this.variants[this.selectedVariant].image;
+    },
+    inStock() {
+      return this.variants[this.selectedVariant].quantity;
+    },
+    displayOnSale() {
+      const brand = this.brand;
+      const product = this.product;
+
+      if (this.onSale) {
+        return `${brand} ${product} is on sale`;
+      } else {
+        return `Sorry, that product is already sold out...`;
+      }
     }
   }
 });
