@@ -13,6 +13,7 @@ const app = Vue.createApp({
         { id: 1212, color: "Green" },
         { id: 1213, color: "Blue" }
       ],
+      sizes: ["small", "middle", "large", "extra large"],
     };
   },
 });
